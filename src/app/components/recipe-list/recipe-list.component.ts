@@ -11,11 +11,7 @@ export class RecipeListComponent {
 
   recipes: Recipe[];
 
-  recipe_in_progress: Recipe;
-
   constructor(private router: Router) {
-    this.recipe_in_progress = Recipe.createBlank();
-
     this.recipes = [
       Recipe.recipeFromJSON(
         {
@@ -132,13 +128,11 @@ export class RecipeListComponent {
     ];
   }
 
-  public addRecipeClicked() {
-    console.log(JSON.stringify(this.recipe_in_progress, null, 2));
-    this.recipes.unshift(this.recipe_in_progress);
-    this.recipe_in_progress = Recipe.createBlank();
+  userClickedOnRecipe(recipeId: number) {
+    this.router.navigateByUrl('/recipes/' + recipeId);
   }
 
-  public userClickedOnRecipe(recipeId: number) {
-    this.router.navigateByUrl('recipes/' + recipeId);
+  addNewRecipePressed(): void {
+    this.router.navigateByUrl('/editnewrecipe');
   }
 }

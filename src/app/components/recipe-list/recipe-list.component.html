@@ -1,37 +1,6 @@
-<!-- <div style="float: right;">
-  <input type="button" value="Toggle Dark BG" (click)="toggleBackground()" />
-  <input type="button" value="Toggle Font size" (click)="toggleFontSize()" />
-</div>
-<h1 [ngClass]="current_classes" [ngStyle]="current_styles">These is our recipes</h1> -->
+<div style="float: right; padding: 5px" ><input type="button" value="add new Recipe" (click)="addNewRecipePressed()"/></div>
 <h1>These is our recipes</h1>
 <app-recipe-summary *ngFor="let recipe of recipes" [recipe]="recipe" (userClick)="userClickedOnRecipe($event)"></app-recipe-summary>
 
 <div style="clear: both"></div>
-<div class="new-recipe panel panel-default">
-  <div class='panel-heading'>
-    <h4 class='panel-title'>Add new recipe</h4>
-  </div>
-  <div class='panel-body'>
-    <div class="input-group">
-      <input style="width: 400px" [(ngModel)]="recipe_in_progress.title" type="text" class="form-control" placeholder="Recipe title"
-        name="title" />
-    </div>
-    <div class="input-group">
-      <textarea style="width: 400px" [(ngModel)]="recipe_in_progress.description" rows="5" class="form-control" placeholder="Recipe description"
-        name="description"></textarea>
-    </div>
-    <div class="input-group">
-      <input [(ngModel)]="recipe_in_progress.feeds_this_many" type="text" class="form-control" placeholder="Feeds this many" name="feeds_this_many"
-      />
-      <span class="input-group-addon">people</span>
-    </div>
-    <div class="input-group">
-      <input [(ngModel)]="recipe_in_progress.preparation_time" type="text" class="form-control" placeholder="Preparation time"
-        name="preparation_time" />
-      <span class="input-group-addon">minutes</span>
-    </div>
-    <div class="input-group">
-      <input type="button" value="Add Recipe" (click)="addRecipeClicked()" />
-    </div>
-  </div>
-</div>
+
