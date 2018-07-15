@@ -1,4 +1,4 @@
-<div class='recipe panel panel-default'>
+<div class='recipe panel panel-default' (click)="userClicked()">
   <div class='panel-heading'>
     <h3 class='panel-title'>{{ recipe.title }}</h3>
   </div>
@@ -14,5 +14,4 @@
       <div>{{ recipe.feeds_this_many }}</div>
     </div>
   </div>
-  <!-- <div style="font-size: 75%; cursor: pointer; padding: 5px" (click)="zoomClicked()">zoom</div> -->
 </div>
