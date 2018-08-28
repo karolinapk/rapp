@@ -135,14 +135,16 @@ export class RecipeService {
 
   getRecipeById(recipeId: number): Promise<Recipe> {
     return new Promise<Recipe>((resolve, reject) => {
-      for (const recipe of this.recipes) {
-        if (recipe.id === recipeId) {
-          resolve(recipe);
-          return;
+      setTimeout(() => {
+        for (const recipe of this.recipes) {
+          if (recipe.id === recipeId) {
+            resolve(recipe);
+            return;
+          }
         }
-      }
 
-      reject(Error('No recipe exists with that ID.'));
+        reject(Error('No recipe exists with that ID.'));
+      }, 2000);
     });
   }
 }
