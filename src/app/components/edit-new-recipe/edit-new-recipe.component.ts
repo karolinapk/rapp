@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Recipe} from '../../model/recipe';
+import {RecipeService} from '../../services/recipe.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-new-recipe',
@@ -10,7 +12,7 @@ export class EditNewRecipeComponent implements OnInit {
 
   recipe_in_progress: Recipe;
 
-  constructor() {
+  constructor(private router: Router, private recipeService: RecipeService) {
     this.recipe_in_progress = Recipe.createBlank();
   }
 
@@ -18,9 +20,9 @@ export class EditNewRecipeComponent implements OnInit {
   }
 
   addRecipeClicked() {
-    console.log(JSON.stringify(this.recipe_in_progress, null, 2));
-    // this.recipes.unshift(this.recipe_in_progress);
-    this.recipe_in_progress = Recipe.createBlank();
+    this.recipeService.addNewRecipe(this.recipe_in_progress).then((recipe) => {
+      this.router.navigate(['recipes', recipe.id]);
+    });
   }
 
   addIngredientPressed(): void {
